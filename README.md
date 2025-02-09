@@ -3,8 +3,8 @@
 
 ## 1. Requirements
 
-- `Scala 2.12.3`
-- `sbt 0.13.8`
+- `Scala 3.6.2`
+- `sbt 1.10.7`
 
 ## 2. How to start
 
