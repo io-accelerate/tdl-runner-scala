@@ -28,3 +28,5 @@ coverageEnabled := true
 lazy val tdlTests = taskKey[Unit]("Run tests for CI")
 
 tdlTests := (Test / test).value
+
+Test / testOptions += Tests.Argument("-oF") 
