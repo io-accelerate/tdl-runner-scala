@@ -13,7 +13,7 @@ jobs:
 
       # ~~~~~~~~~~~~~ Scala setup ~~~~~~~~~~~~~
       - name: Set up Java
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'corretto'
           java-version: '21'
@@ -22,8 +22,6 @@ jobs:
         run: java --version
       - name: Setup sbt launcher
         uses: sbt/setup-sbt@v1
-      - name: Display Scala version
-        run: scala --version
       - name: Display SBT version
         run: sbt --version
 
