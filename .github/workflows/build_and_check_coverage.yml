@@ -17,7 +17,7 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: '21'
-          cache: 'gradle'
+          cache: 'sbt'
       - name: Display Java version
         run: java --version
       - name: Display Scala version
