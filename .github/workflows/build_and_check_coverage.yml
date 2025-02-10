@@ -1,0 +1,32 @@
+name: Java Junit5 test
+
+on: [push]
+
+jobs:
+  build-and-test:
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install xmllint
+        run: sudo apt-get install -y libxml2-utils
+
+      # ~~~~~~~~~~~~~ Scala setup ~~~~~~~~~~~~~
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'corretto'
+          java-version: '21'
+          cache: 'gradle'
+      - name: Display Java version
+        run: java --version
+      - name: Display Scala version
+        run: scala --version
+      - name: Display SBT version
+        run: sbt --version
+
+        # ~~~~~~~~~~~~~ Run ~~~~~~~~~~~~~
+      - name: Run and compute coverage
+        run: |
+          ./get_coverage_for_challenge.sh TST
+          grep "50" ./coverage.tdl
