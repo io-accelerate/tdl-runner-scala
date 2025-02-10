@@ -20,6 +20,8 @@ jobs:
           cache: 'sbt'
       - name: Display Java version
         run: java --version
+      - name: Setup sbt launcher
+        uses: sbt/setup-sbt@v1
       - name: Display Scala version
         run: scala --version
       - name: Display SBT version
