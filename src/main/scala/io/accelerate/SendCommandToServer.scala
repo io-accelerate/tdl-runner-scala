@@ -5,7 +5,7 @@ import io.accelerate.client.queue.QueueBasedImplementationRunner
 import io.accelerate.client.runner.ChallengeSession
 import io.accelerate.runner.UserInputAction
 
-object SendCommandToServer extends App {
+object SendCommandToServer {
   /**
     * ~~~~~~~~~~ Running the system: ~~~~~~~~~~~~~
     *
@@ -33,7 +33,7 @@ object SendCommandToServer extends App {
     *   |  2.  | Start a challenge by typing "start".                                  |
     *   |  3.  | Read the description from the "challenges" folder.                    |
     *   |  4.  | Locate the file corresponding to your current challenge in:           |
-    *   |      |   ./src/main/scala/befaster/solutions                                 |
+    *   |      |   ./src/main/scala/io/accelerate/solutions                            |
     *   |  5.  | Replace the following placeholder exception with your solution:       |
     *   |      |   throw new SolutionNotImplementedException()                         |
     *   |  6.  | Deploy to production by typing "deploy".                              |
@@ -48,20 +48,22 @@ object SendCommandToServer extends App {
     *        * Anything really, provided that this file stays runnable.
     *
     **/
-  val entry = EntryPointMapping
-  val runner: QueueBasedImplementationRunner = new QueueBasedImplementationRunner.Builder()
-    .setConfig(getRunnerConfig)
-    .withSolutionFor("sum", entry.sum)
-    .withSolutionFor("hello", entry.hello)
-    .withSolutionFor("array_sum", entry.array_sum)
-    .withSolutionFor("int_range", entry.int_range)
-    .withSolutionFor("fizz_buzz", entry.fizz_buzz)
-    .withSolutionFor("checkout", entry.checkout)
-    .withSolutionFor("checklite", entry.checklite)
-    .create
+  def main(args: Array[String]): Unit = {
+    val entry = EntryPointMapping
+    val runner: QueueBasedImplementationRunner = new QueueBasedImplementationRunner.Builder()
+      .setConfig(getRunnerConfig)
+      .withSolutionFor("sum", entry.sum)
+      .withSolutionFor("hello", entry.hello)
+      .withSolutionFor("array_sum", entry.array_sum)
+      .withSolutionFor("int_range", entry.int_range)
+      .withSolutionFor("fizz_buzz", entry.fizz_buzz)
+      .withSolutionFor("checkout", entry.checkout)
+      .withSolutionFor("checklite", entry.checklite)
+      .create
 
-  ChallengeSession.forRunner(runner)
-    .withConfig(getConfig)
-    .withActionProvider(new UserInputAction(args))
-    .start()
+    ChallengeSession.forRunner(runner)
+      .withConfig(getConfig)
+      .withActionProvider(new UserInputAction(args))
+      .start()
+  }
 }
