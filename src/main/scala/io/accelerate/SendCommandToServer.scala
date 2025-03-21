@@ -50,13 +50,24 @@ object SendCommandToServer {
     *
     **/
   def main(args: Array[String]): Unit = {
-    val entry = EntryPointMapping
+    val entry = new EntryPointMapping()
     val runner: QueueBasedImplementationRunner = new QueueBasedImplementationRunner.Builder()
       .setConfig(getRunnerConfig)
       .withSolutionFor("sum", entry.sum)
       .withSolutionFor("hello", entry.hello)
-      .withSolutionFor("fizz_buzz", entry.fizz_buzz)
+      .withSolutionFor("fizz_buzz", entry.fizzBuzz)
       .withSolutionFor("checkout", entry.checkout)
+      .withSolutionFor("increment", entry.increment)
+      .withSolutionFor("to_uppercase", entry.toUppercase)
+      .withSolutionFor("letter_to_santa", entry.letterToSanta)
+      .withSolutionFor("count_lines", entry.countLines)
+      .withSolutionFor("array_sum", entry.arraySum)
+      .withSolutionFor("int_range", entry.intRange)
+      .withSolutionFor("filter_pass", entry.filterPass)
+      .withSolutionFor("inventory_add", entry.inventoryAdd)
+      .withSolutionFor("inventory_size", entry.inventorySize)
+      .withSolutionFor("inventory_get", entry.inventoryGet)
+      .withSolutionFor("waves", entry.waves)
       .withJacksonModule(DefaultScalaModule)
       .create
 
