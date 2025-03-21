@@ -3,9 +3,11 @@ ThisBuild / scalaVersion := "3.6.2"
 name := "tdl-runner-scala"
 version := "1.0"
 
+resolvers += Resolver.mavenLocal
+
 val scalatest    = "org.scalatest" %% "scalatest" % "3.2.17" % Test
 val scalaxml     = "org.scala-lang.modules" %% "scala-xml" % "2.1.0"  // Updated for Scala 3
-val client       = "io.accelerate" % "tdl-client-java" % "0.28.1"
+val client       = "io.accelerate" % "tdl-client-java" % "0.28.2"
 val jacksonScala = "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.17.3"
 val guava        = "com.google.guava" % "guava" % "31.1-jre" // Updated Guava version
 val unirest      = "com.konghq" % "unirest-java" % "3.14.3" // Updated Unirest package
