@@ -1,5 +1,6 @@
 package io.accelerate
 
+import com.fasterxml.jackson.module.scala.DefaultScalaModule
 import io.accelerate.runner.Utils.{getConfig, getRunnerConfig}
 import io.accelerate.client.queue.QueueBasedImplementationRunner
 import io.accelerate.client.runner.ChallengeSession
@@ -54,11 +55,9 @@ object SendCommandToServer {
       .setConfig(getRunnerConfig)
       .withSolutionFor("sum", entry.sum)
       .withSolutionFor("hello", entry.hello)
-      .withSolutionFor("array_sum", entry.array_sum)
-      .withSolutionFor("int_range", entry.int_range)
       .withSolutionFor("fizz_buzz", entry.fizz_buzz)
       .withSolutionFor("checkout", entry.checkout)
-      .withSolutionFor("checklite", entry.checklite)
+      .withJacksonModule(DefaultScalaModule)
       .create
 
     ChallengeSession.forRunner(runner)
