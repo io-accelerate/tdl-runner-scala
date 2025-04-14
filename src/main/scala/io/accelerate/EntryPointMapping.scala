@@ -5,6 +5,7 @@ import io.accelerate.solutions.CHK.CheckoutSolution
 import io.accelerate.solutions.DMO.{DemoRound1Solution, DemoRound2Solution, DemoRound3Solution, DemoRound4n5Solution, InventoryItem}
 import io.accelerate.solutions.FIZ.FizzBuzzSolution
 import io.accelerate.solutions.HLO.HelloSolution
+import io.accelerate.solutions.RBT.RabbitHoleSolution
 import io.accelerate.solutions.SUM.SumSolution
 
 /**
@@ -22,6 +23,7 @@ class EntryPointMapping {
   private val helloSolution = new HelloSolution()
   private val fizzBuzzSolution = new FizzBuzzSolution()
   private val checkoutSolution = new CheckoutSolution()
+  private val rabbitHoleSolution = new RabbitHoleSolution()
   private val demoRound1Solution = new DemoRound1Solution()
   private val demoRound2Solution = new DemoRound2Solution()
   private val demoRound3Solution = new DemoRound3Solution()
@@ -42,6 +44,16 @@ class EntryPointMapping {
   def checkout(p: java.util.List[ParamAccessor]): Any = {
     checkoutSolution.checkout(p.get(0).getAsString)
   }
+
+  def rabbitHole(p: java.util.List[ParamAccessor]): Any = {
+    rabbitHoleSolution.rabbitHole(
+      p.get(0).getAsInteger,
+      p.get(1).getAsInteger,
+      p.get(2).getAsString,
+      p.get(3).getAsMapOf(classOf[String])
+    )
+  }
+
 
   // Demo Round 1
   

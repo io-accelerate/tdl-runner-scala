@@ -57,6 +57,7 @@ object SendCommandToServer {
       .withSolutionFor("hello", entry.hello)
       .withSolutionFor("fizz_buzz", entry.fizzBuzz)
       .withSolutionFor("checkout", entry.checkout)
+      .withSolutionFor("rabbit_hole", entry.rabbitHole)
       .withSolutionFor("increment", entry.increment)
       .withSolutionFor("to_uppercase", entry.toUppercase)
       .withSolutionFor("letter_to_santa", entry.letterToSanta)
