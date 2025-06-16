@@ -6,6 +6,8 @@ import io.accelerate.solutions.DMO.{DemoRound1Solution, DemoRound2Solution, Demo
 import io.accelerate.solutions.FIZ.FizzBuzzSolution
 import io.accelerate.solutions.HLO.HelloSolution
 import io.accelerate.solutions.RBT.RabbitHoleSolution
+import io.accelerate.solutions.AMZ.AmazingSolution
+import io.accelerate.solutions.ULT.UltimateSolution
 import io.accelerate.solutions.SUM.SumSolution
 
 /**
@@ -24,6 +26,8 @@ class EntryPointMapping {
   private val fizzBuzzSolution = new FizzBuzzSolution()
   private val checkoutSolution = new CheckoutSolution()
   private val rabbitHoleSolution = new RabbitHoleSolution()
+  private val amazingSolution = new AmazingSolution()
+  private val ultimateSolution = new UltimateSolution()
   private val demoRound1Solution = new DemoRound1Solution()
   private val demoRound2Solution = new DemoRound2Solution()
   private val demoRound3Solution = new DemoRound3Solution()
@@ -54,7 +58,22 @@ class EntryPointMapping {
     )
   }
 
+  def amazingMaze(p: java.util.List[ParamAccessor]): Any = {
+    amazingSolution.amazingMaze(
+      p.get(0).getAsInteger,
+      p.get(1).getAsInteger,
+      p.get(2).getAsMapOf(classOf[String])
+    )
+  }
 
+  def ultimateMaze(p: java.util.List[ParamAccessor]): Any = {
+    ultimateSolution.ultimateMaze(
+      p.get(0).getAsInteger,
+      p.get(1).getAsInteger,
+      p.get(2).getAsMapOf(classOf[String])
+    )
+  }
+  
   // Demo Round 1
   
   def increment(p: java.util.List[ParamAccessor]): Any = {
