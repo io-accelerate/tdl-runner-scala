@@ -6,6 +6,7 @@ import io.accelerate.solutions.DMO.{DemoRound1Solution, DemoRound2Solution, Demo
 import io.accelerate.solutions.FIZ.FizzBuzzSolution
 import io.accelerate.solutions.HLO.HelloSolution
 import io.accelerate.solutions.RBT.RabbitHoleSolution
+import io.accelerate.solutions.HOC.HouseOfCardsSolution
 import io.accelerate.solutions.AMZ.AmazingSolution
 import io.accelerate.solutions.ULT.UltimateSolution
 import io.accelerate.solutions.SUM.SumSolution
@@ -26,6 +27,7 @@ class EntryPointMapping {
   private val fizzBuzzSolution = new FizzBuzzSolution()
   private val checkoutSolution = new CheckoutSolution()
   private val rabbitHoleSolution = new RabbitHoleSolution()
+  private val houseOfCardsSolution = new HouseOfCardsSolution()
   private val amazingSolution = new AmazingSolution()
   private val ultimateSolution = new UltimateSolution()
   private val demoRound1Solution = new DemoRound1Solution()
@@ -55,6 +57,13 @@ class EntryPointMapping {
       p.get(1).getAsInteger,
       p.get(2).getAsString,
       p.get(3).getAsMapOf(classOf[String])
+    )
+  }
+
+  def renderHouse(p: java.util.List[ParamAccessor]): Any = {
+    houseOfCardsSolution.renderHouse(
+      p.get(0).getAsString,
+      p.get(1).getAsMapOf(classOf[String])
     )
   }
 
