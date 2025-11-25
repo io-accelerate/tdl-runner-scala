@@ -7,7 +7,7 @@ resolvers += Resolver.mavenLocal
 
 val scalatest    = "org.scalatest" %% "scalatest" % "3.2.17" % Test
 val scalaxml     = "org.scala-lang.modules" %% "scala-xml" % "2.1.0"  // Updated for Scala 3
-val client       = "io.accelerate" % "tdl-client-java" % "0.30.1"
+val client       = "io.accelerate" % "tdl-client-java" % "0.33.1"
 val jacksonScala = "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.18.3"
 val guava        = "com.google.guava" % "guava" % "31.1-jre" // Updated Guava version
 val unirest      = "com.konghq" % "unirest-java" % "3.14.3" // Updated Unirest package
